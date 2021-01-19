@@ -1,0 +1,99 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "which diversity",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancel"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "umm",
+                        "repeat",
+                        "I dont understand",
+                        "help me",
+                        "what",
+                        "please help",
+                        "help"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "adios",
+                        "good bye",
+                        "bye",
+                        "thanks",
+                        "stop"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "queryNameIntent",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "which diversity {name}",
+                        "give me {name}",
+                        "who is {name}",
+                        "get {name}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "queryNameIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.609104400207.421144023081",
+                                "elicitation": "Elicit.Slot.609104400207.421144023081"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.609104400207.421144023081",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please provide a name."
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.609104400207.421144023081",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You said {name} , is this correct?"
+                    }
+                ]
+            }
+        ]
+    }
+}
